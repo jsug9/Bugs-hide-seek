@@ -16,11 +16,13 @@ document.getElementById('closebtn').addEventListener('click', () => {
   closeNav();
 });
 
-document.querySelectorAll('.nav-bar-link').forEach((n) => n.addEventListener('click', () => {
+//Linter Bug here----------------------
+document.querySelectorAll('.nav-bar-link').forEach(n => n.addEventListener('click', () => {
   document.getElementById('myNav').style.width = '0%';
 }));
 
 // Project array
+// 2 Bugs here----------------------------
 const projects = [
   {
     name: 'Tonic',
@@ -32,7 +34,7 @@ const projects = [
     tools: ['html', 'css', 'javascript'],
     live: '#',
     source: '#',
-  },
+  };
   {
     name: 'Multi-Post Stories',
     company: 'FACEBOOK',
@@ -40,7 +42,7 @@ const projects = [
     year: '2015',
     image: 'Resources/Snapshoot-Portfolio/snapshoot-portfolio2.svg',
     description: 'Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends.',
-    tools: ['html', 'css', 'javascript', 'Ruby on rails'],
+    tools: {'html', 'css', 'javascript', 'Ruby on rails'},
     live: '#',
     source: '#',
   },
@@ -119,13 +121,14 @@ projects.forEach((project, index) => {
   worksDescription.innerHTML = project.description;
   worksTextDiv.appendChild(worksDescription);
 
+  //Bug here -----------------
   const worksLanguages = document.createElement('ul');
   worksLanguages.setAttribute('class', 'works-card-languages');
   project.tools.forEach((tool) => {
     const li = document.createElement('li');
     li.innerText = tool;
     li.className = 'works-card-languages-element';
-    worksLanguages.appendChild(li);
+    worksLanguages.innerHTML += li;
   });
   worksTextDiv.appendChild(worksLanguages);
 
@@ -157,7 +160,7 @@ overlay.appendChild(popup);
 projectBtns.forEach((button) => {
   button.addEventListener('click', () => {
     const btnId = button.id;
-
+    //Bug here--------------------------------------
     const content = `
     <div class="popup-header">
       <h2 id="project-name">${projects[btnId].name}</h2>
@@ -179,7 +182,7 @@ projectBtns.forEach((button) => {
       </div>
       <div class="information-div">
         <ul class="works-card-languages" id="languages">
-        ${projects[btnId].tools.map((language) => `<li class="works-card-languages-element">${language}</li>`).join('')}
+        ${projects[btnId].tools.map((language) => '<li class="works-card-languages-element">${language}</li>').join('')}
         </ul>
         <div class="bottom-btns">
           <a class="popup-purple-button" id="project-live" href="${projects[btnId].live}">
@@ -212,7 +215,8 @@ projectBtns.forEach((button) => {
     };
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function closeOnEvent(event) {
+    //Bug here ---------------------------------
+    window.onclick = function closeOnEvent() {
       if (event.target === overlay) {
         overlay.style.display = 'none';
       }
@@ -229,15 +233,16 @@ const errorDiv = document.getElementById('error-div');
 const errorMessage = document.getElementById('error-message');
 
 // Contact Form Validation
+// Bug here -------------------------------
 form.addEventListener('submit', (event) => {
-  if (formEmail.value.match(/^[a-z@.0-9-_]*$/)) {
+  if (email.value.match(/^[a-z@.0-9-_]*$/)) {
     errorDiv.style.display = 'none';
     errorMessage.innerHTML = '';
-    formEmail.style.border = '1px solid green';
+    email.style.border = '1px solid green';
     localStorage.clear();
   } else {
     event.preventDefault();
-    formEmail.style.border = '3px solid #f47174';
+    email.style.border = '3px solid #f47174';
     errorDiv.style.display = 'flex';
     errorDiv.setAttribute('class', 'error-div');
     errorMessage.textContent = 'Email should be in lower case';
@@ -293,10 +298,11 @@ function checkLocalStorage() {
   }
 }
 
+// Minor Bug here -----------------------------
 if (storageAvailable('localStorage')) {
-  formName.addEventListener('input', formValues);
-  formEmail.addEventListener('input', formValues);
-  formMessage.addEventListener('input', formValues);
+  formName.addEventListener('change', formValues);
+  formEmail.addEventListener('change', formValues);
+  formMessage.addEventListener('change', formValues);
   
   document.addEventListener('DOMContentLoaded', () => {
     checkLocalStorage();
