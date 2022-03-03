@@ -2,14 +2,13 @@
 
 # Bugs Hide & Seek
 
-> This repo is a copy of the [Portfolio Project](https://github.com/jsug9/Portfolio) with some bugs in JavaScript added on purpose, so that my partner can find and fix them.
+> This repo is a copy of the [Portfolio Project](https://github.com/jsug9/Portfolio) with some bugs intentionally added on the script.js, so that my partner can practice his abilities on finding and fixing bugs on JavaScript.
 
 ## Built With
 
 - HTML
 - CSS
 - JavaScript
-- Figma
 
 ## Live Demo
 
@@ -34,7 +33,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-Big thanks to the people who helped me in the process:
+Big thanks to the people who helped me create the original repo:
 
 👤 **Aaron Keegan**
 
