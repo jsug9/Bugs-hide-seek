@@ -22,7 +22,7 @@ document.querySelectorAll('.nav-bar-link').forEach(n => n.addEventListener('clic
 }));
 
 // Project array
-// 2 Bugs here----------------------------
+// 3 Bugs here----------------------------
 const projects = [
   {
     name: 'Tonic',
@@ -31,7 +31,7 @@ const projects = [
     year: '2015',
     image: 'Resources/Snapshoot-Portfolio/snapshoot-portfolio1.svg',
     description: 'A daily selection of privately personalized reads; no accounts or sign-ups required.',
-    tools: ['html', 'css', 'javascript'],
+    tools: ['html' 'css', 'javascript'],
     live: '#',
     source: '#',
   };
