@@ -20,10 +20,6 @@ document.querySelectorAll('.nav-bar-link').forEach((n) => n.addEventListener('cl
   document.getElementById('myNav').style.width = '0%';
 }));
 
-if (window.innerWidth >= 800) {
-  document.getElementById('myNav').style.width = 'test';
-}
-
 // Project array
 const projects = [
   {
