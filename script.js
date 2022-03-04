@@ -52,7 +52,7 @@ const projects = [
     position: 'Full Stack Dev',
     year: '2015',
     image: 'Resources/Snapshoot-Portfolio/snapshoot-portfolio3.svg',
-    description: 'Exploring the future of media in Facebook\'s first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.',
+    description: 'Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.',
     tools: ['html', 'Ruby on rails', 'css', 'javascript'],
     live: '#',
     source: '#',
